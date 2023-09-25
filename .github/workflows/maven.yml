@@ -41,8 +41,7 @@ jobs:
     
     if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
-    needs:
-      - project-build
+
     steps:
       - uses: actions/checkout@v3
 
@@ -75,6 +74,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: Dockerfile-app
           push: true
-          tags: tericcabrel/bmi:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.appName }}:latest
+
