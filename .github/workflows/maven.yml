@@ -40,9 +40,9 @@ jobs:
     - name: Run tests
       run: mvn --batch-mode --update-snapshots verify
       
- docker-build:
- 
-     if: ${{ github.ref == 'refs/heads/ma' }}
+  docker-build:
+    
+    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     needs:
       - project-build
@@ -52,7 +52,7 @@ jobs:
       - name: Set up JDK 8
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '8'
           distribution: 'adopt'
 
       - name: Cache Maven packages
