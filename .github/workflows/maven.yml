@@ -1,7 +1,4 @@
-
-
 name: Java CI with Maven - Gsorrentino
-
 on:
   push:
     branches: [ "master" ]
